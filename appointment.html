@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="ap.css">
+  <link rel="stylesheet" href="style2.css">
+  <link rel="icon" href="images/logo_title.png" type="image/x-icon">
+  <title> Appointment Form</title>
+</head>
+<body>
+
+  <div class="header-bottom" data-header>
+    <div class="container">
+      <p style="font-size: 30px; font-weight: bold; justify-content: center; text-align: center;" >  <span1 style="color: red;">Appointment</span1>  <span1 style="   color: blue;">Form</span1> </p>
+
+      <a href="index.html" class="btn">HOME</a>
+
+    </div>
+
+   
+
+  </div>
+
+
+
+
+
+  <form name="submit-to-google-sheet">
+
+    <div class="block glow form" >
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input style="width: 320px;"  name="firstName" type="text" id="firstName"  required>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      
+      <input style="width: 320px;" name="lastname" type="text" id="lastName"  required>
+  
+    </div>
+    <div class="form-group">
+      <label for="dobDay">Date of Birth:</label>
+      <div>
+        <input style="width: 320px;" type="number,text"  name="DateofBirth" id="dobDay" placeholder="dd/mm/yy"  min="1" max="31" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="gender">Gender:</label>
+      <select  style="width: 320px;" id="gender"  required>
+        <option value="male" >Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input style="width: 320px;" name="Ph-no" type="tel" id="phoneNumber" placeholder="Phone Number" required>
+    </div>
+    <div class="form-group">
+      <label for="address">Address:</label>
+      <input style="width: 320px;" type="text" name="address" id="address" placeholder="Your Address" required>
+    </div>
+    <div class="form-group">
+      <label for="city">City:</label>
+      <input style="width: 320px;" type="text" id="city" name="city" placeholder="Your City" required>
+    </div>
+    <div class="form-group">
+      <label for="state">State :</label>
+      <input style="width: 320px;" type="text" id="state" name="state" placeholder="Your State" required>
+    </div>
+    <div class="form-group">
+      <label for="postalCode">Postal / Zip Code:</label>
+      <input style="width: 320px;" type="text" id="postalCode"  name="Pincode" placeholder="Pincode"  required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input style="   width: 320px; color: #fff;" type="email" id="email"  name="Email" placeholder=" Your Email" required >
+    </div>
+    
+    <div class="form-group">
+      <label for="appointmentDate"> Preferred Appointment Date: </label>
+      <input style="background-color: #007bff; color: #fff; width: 320px;" type="date" id="appointmentDate" name="appointmentdate" value="2024-01-18" required >
+    </div>
+    <button style="cursor: pointer;"  type="submit" class="btn">Submit</button>
+  </div>
+  </form>
+
+  
+
+  
+</body>
+
+<script>
+document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Get form values
+  const formData = {
+    firstName: document.getElementById('firstName').value,
+    lastName: document.getElementById('lastName').value,
+    dobDay: document.getElementById('dobDay').value,
+    dobMonth: document.getElementById('dobMonth').value,
+    dobYear: document.getElementById('dobYear').value,
+    gender: document.getElementById('gender').value,
+    phoneNumber: document.getElementById('phoneNumber').value,
+    address: document.getElementById('address').value,
+    city: document.getElementById('city').value,
+    state: document.getElementById('state').value,
+    postalCode: document.getElementById('postalCode').value,
+    email: document.getElementById('email').value,
+    appliedBefore: document.getElementById('appliedBefore').value,
+    department: document.getElementById('department').value,
+    procedure: document.getElementById('procedure').value,
+    appointmentDate: document.getElementById('appointmentDate').value,
+  };
+
+  // Log the form data (you can send it to the server using AJAX instead)
+  console.log(formData);
+});
+
+</script>
+
+
+<script>
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwAC9HYSDApLD6xelo6zC40mh-rrgNySo0aC4bprI4g06VCebcY6zyBsCRibPoZdhk0/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg=document.getElementById("msg")
+  
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+          msg.innerHTML="Message sent successfully"
+          setTimeout(function(){
+              msg.innerHTML=""
+          },5000)
+          form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+
+</script>
+
+
+
+
+  
+
+
+</html>

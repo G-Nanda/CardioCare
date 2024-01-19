@@ -1,0 +1,441 @@
+/*-----------------------------------*\
+  #style.css
+\*-----------------------------------*/
+
+/**
+ * copyright 2022 codewithsadee
+ */
+
+
+
+
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root {
+
+  /**
+   * colors
+   */
+
+  --light-steel-blue: hsl(218, 33%, 77%);
+  --royal-blue-light: hsl(225, 68%, 53%);
+  --flickr-blue_30: hsla(225, 68%, 53%, 0.3);
+  --carolina-blue: hsl(201, 92%, 47%);
+  --oxford-blue-1: hsl(218, 70%, 18%);
+  --oxford-blue-2: hsl(217, 100%, 12%);
+  --oxford-blue-3: hsl(218, 71%, 11%);
+  --gainsboro_50: hsla(0, 0%, 85%, 0.5);
+  --lavender-web: hsl(225, 67%, 91%);
+  --sonic-silver: hsl(0, 0%, 47%);
+  --light-gray: hsl(0, 0%, 84%);
+  --cultured: hsl(0, 0%, 97%);
+  --black_10: hsla(0, 0%, 0%, 0.1);
+  --black_8: hsla(0, 0%, 0%, 0.08);
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
+  --jet: hsl(0, 0%, 20%);
+
+  /**
+   * gradient color
+   */
+
+  --gradient: linear-gradient( 90deg, var(--carolina-blue) 0%, var(--royal-blue-light) 100%);
+
+  /**
+   * typography
+   */
+
+  --ff-roboto: "Roboto", sans-serif;
+  --ff-poppins: "Poppins", sans-serif;
+
+  --fs-1: 4rem;
+  --fs-2: 3.6rem;
+  --fs-3: 3.2rem;
+  --fs-4: 2.4rem;
+  --fs-5: 2.2rem;
+  --fs-6: 1.8rem;
+  --fs-7: 1.6rem;
+
+  --fw-800: 800;
+  --fw-700: 700;
+  --fw-600: 600;
+  --fw-500: 500;
+
+  /**
+   * spacing
+   */
+
+  --section-padding: 80px;
+
+  /**
+   * shadow
+   */
+
+  --shadow-1: 4px 4px 15px var(--black_10);
+  --shadow-2: 0 10px 15px var(--black_10);
+  --shadow-3: 0px 20px 60px var(--black_8);
+  --shadow-4: 0px 10px 30px var(--flickr-blue_30);
+  --shadow-5: 0px 2px 60px 0px var(--black_10);
+
+  /**
+   * border radius
+   */
+
+  --radius-6: 6px;
+  --radius-4: 4px;
+
+  /**
+   * transition
+   */
+
+  --transition: 0.25s ease;
+  --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
+
+}
+
+
+
+
+
+/*-----------------------------------*\
+  #RESET
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li { list-style: none; }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a,
+img,
+span,
+input,
+button,
+ion-icon { display: block; }
+
+img { 
+  height: auto;
+  
+ }
+
+input,
+button {
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+input { width: 100%; }
+
+button { cursor: pointer; }
+
+ion-icon { pointer-events: none; }
+
+address { font-style: normal; }
+
+html {
+  font-family: var(--ff-roboto);
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  
+  color: var(--sonic-silver);
+  font-size: 1.5rem;
+  background-color:#71eee8 ;
+  
+}
+
+
+
+
+
+/*-----------------------------------*\
+  #REUSED STYLE
+\*-----------------------------------*/
+
+.container { 
+  padding-inline: 25px; 
+  
+}
+
+.section {
+  
+   padding-block: var(--section-padding); 
+  }
+
+.section-subtitle {
+  color: var(--royal-blue-light);
+  font-family: var(--ff-poppins);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-700);
+  text-transform: uppercase;
+  margin-block-end: 10px;
+}
+
+.h1,
+.h2,
+.h3 {
+  font-family: var(--ff-poppins);
+  line-height: 1.2;
+}
+
+.h1 {
+  color: var(--oxford-blue-1);
+  font-size: var(--fs-2);
+}
+
+.h2,
+.h3 { color: var(--oxford-blue-2); }
+
+.h2 { font-size: var(--fs-1); }
+
+.h3 { font-size: var(--fs-5); }
+
+.btn {
+  background-image: linear-gradient( var(--deg, 90deg), var(--carolina-blue) 0%, var(--royal-blue-light) 100%);
+  color: var(--white);
+  font-size: var(--fs-7);
+  text-transform: uppercase;
+  padding: 20px 30px;
+  text-align: center;
+  border-radius: var(--radius-4);
+  box-shadow: var(--shadow-4);
+}
+
+.btn:is(:hover, :focus) { --deg: -90deg; }
+
+
+
+.text-center { text-align: center; }
+
+.card-text,
+.section-text { line-height: 1.7; }
+
+.img-holder {
+  aspect-ratio: var(--width) / var(--height);
+  background-color: var(--light-gray);
+}
+
+.img-cover {
+  width: 95%;
+  height: 95%;
+  object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    
+  }
+  
+
+  
+  form {
+    max-width: 500px;
+    margin: 0 auto;
+    
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+    border-radius: 55px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  select {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+
+
+
+
+  input{
+    width: 420px;
+    height: 30px;
+    border: 0;
+    outline: none;
+    background: #bbb9b9;
+    padding: 15px;
+    margin :15px 0;
+    color:#fff;
+    font-size: 18px;
+    border-radius: 6px;
+
+}
+form .btn2{
+    padding: 14px 60px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+  
+
+select{
+  width: 100%;
+    border: 0;
+    outline: none;
+    background: #007bff;
+    padding: 15px;
+    margin :15px 0;
+    color:#fff;
+    font-size: 18px;
+    border-radius: 6px;
+
+}
+
+.form-group{
+    border-color: #007bff;
+    width: 350px;
+    border: 2px;
+    outline: #0056b3;
+    
+    background: transparent;
+    padding: 15px;
+    margin :15px 0; 
+    color:#fff;
+    font-size: 18px;
+    border-radius: 6px;
+}
+
+.btn.btn2{
+  display: inline-block;
+  background: #ff004f;
+}
+
+
+label{
+  color: blue;
+}
+
+
+
+/* 
+Media Queries */
+
+
+/* Default styles */
+
+/* ... (your existing CSS) ... */
+
+/* Media query for tablet (768px) */
+@media (max-width: 768px) {
+
+
+  .container {
+    padding-inline: 15px; /* Adjust padding for smaller screens */
+  }
+
+  /* Adjust form styles for smaller screens */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  select {
+    width: 100%; /* Make inputs full width on smaller screens */
+  }
+
+  
+
+  select{
+    background-color: #007bff;
+  }
+
+  input{
+    background-color: #007bff;
+  }
+
+  .form-group {
+    width: 330px;
+    margin: 20px; /* Make form groups full width on smaller screens */
+    background-color: transparent;
+  }
+
+  /* Adjust button styles for smaller screens */
+  button {
+    width: 100%; /* Make buttons full width on smaller screens */
+  }
+}
+
+/* Media query for mobile (576px) */
+@media (max-width: 576px) {
+  .container {
+    padding-inline: 10px; /* Further adjust padding for smaller screens */
+  }
+
+
+
+  /* Adjust form styles for smaller screens */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  select {
+    font-size: 14px; /* Decrease font size for smaller screens */
+  }
+
+  .form-group {
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
+
+  /* Adjust button styles for smaller screens */
+  button {
+    font-size: 14px; /* Decrease font size for smaller screens */
+  }
+}
+
+
+
+
+
+
+

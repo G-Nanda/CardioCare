@@ -1,0 +1,137 @@
+*{
+  margin:0;
+  padding: 0;
+}
+
+.container { padding-inline: 25px; }
+
+.btn {
+  background-image: linear-gradient( var(--deg, 90deg), var(--carolina-blue) 0%, var(--royal-blue-light) 100%);
+  color: var(--white);
+  font-size: var(--fs-7);
+  text-transform: uppercase;
+  padding: 20px 30px;
+  text-align: center;
+  border-radius: var(--radius-4);
+  box-shadow: var(--shadow-4);
+}
+
+.btn:is(:hover, :focus) { --deg: -90deg; }
+
+.main{
+  background-color: #71eee8;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+
+}
+
+.navbar{
+  width: 1200px;
+  height: 75px;
+  margin: auto;
+}
+
+.icon{
+  margin-top: -1%;
+  width: 200px;
+  float: left;
+  height: 70px;
+  
+}
+
+
+img{
+  width: 180px;
+  height: 150px;
+  
+  margin-left: -20%;
+}
+
+
+
+.menu{
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-left: -4%;
+  width: 800px;
+  float: right;
+  height: 90px;
+  background-color: blue;
+}
+
+ul{
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+ul li{
+  list-style: none;
+  margin-left: 102px;
+  margin-top: 37px;
+  font-size: 19px;
+}
+
+ul li a{
+  text-decoration: none;
+  color: #fff;
+  font-family: Arial;
+  font-weight: bold;
+  transition: 0.4s ease-in-out;
+}
+
+ul li a:hover{
+  color: red;
+}
+
+
+
+.backimg img{
+  width: 500px;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+  float: right;
+  flex-basis: 60%;
+
+  border-radius: 30px;
+}
+
+
+.hero-content { margin-block-end: 50px; }
+  
+.hero-title { margin-block: 15px 30px; }
+
+.hero-text {
+  font-size: var(--fs-6);
+  line-height: 1.45;
+  margin-block-end: 40px;
+}
+
+.hero-form {
+  background-color: var(--white);
+  max-width: 95%;
+  padding: 15px;
+  border-radius: var(--radius-4);
+  box-shadow: var(--shadow-3);
+}
+
+.hero-form .email-field {
+  background-color: var(--cultured);
+  color: var(--black);
+  min-height: 70px;
+  padding-inline: 15px;
+  border-radius: var(--radius-4);
+  margin-block-end: 15px;
+}
+
+.hero-form .btn { width: 100%; }
+
+
+
+
