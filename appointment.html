@@ -26,7 +26,7 @@
 
 
 
-  <form name="submit-to-google-sheet">
+  <!-- <form name="submit-to-google-sheet">
 
     <div class="block glow form" >
     <div class="form-group">
@@ -86,6 +86,67 @@
   </div>
   </form>
 
+   -->
+
+   <form id="appointmentForm" name="submit-to-google-sheet">
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input style="width: 320px;"  name="firstName" type="text" id="firstName" required>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input style="width: 320px;" name="lastName" type="text" id="lastName" required> <!-- Fixed the 'lastname' to 'lastName' -->
+    </div>
+    <div class="form-group">
+      <label for="dobDay">Date of Birth:</label>
+      <input style="width: 320px;" type="text" name="DateofBirth" id="dobDay" placeholder="dd/mm/yy" required>
+    </div>
+    <div class="form-group">
+      <label for="gender">Gender:</label>
+      <select style="width: 320px;" id="gender" name="gender" required> <!-- Added 'name="gender"' -->
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input style="width: 320px;" name="phoneNumber" type="tel" id="phoneNumber" placeholder="Phone Number" required> <!-- Fixed the 'Ph-no' to 'phoneNumber' -->
+    </div>
+    <div class="form-group">
+      <label for="address">Address:</label>
+      <input style="width: 320px;" name="address" type="text" id="address" placeholder="Your Address" required>
+    </div>
+    
+    
+      <div class="form-group">
+        <label for="city">City:</label>
+        <input style="width: 320px;" type="text" id="city" name="city" placeholder="Your City" required>
+      </div>
+    
+      <div class="form-group">
+        <label for="state">State:</label>
+        <input style="width: 320px;" type="text" id="state" name="state" placeholder="Your State" required>
+      </div>
+    
+      <div class="form-group">
+        <label for="postalCode">Postal / Zip Code:</label>
+        <input style="width: 320px;" type="text" id="postalCode" name="postalCode" placeholder="Pincode" required>
+      </div>
+    
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input style="width: 320px;" type="email" id="email" name="email" placeholder="Your Email" required>
+      </div>
+    
+      
+    
+    <div class="form-group">
+      <label for="appointmentDate">Preferred Appointment Date:</label>
+      <input style="background-color: #007bff; color: #fff; width: 320px;" type="date" id="appointmentDate" name="appointmentDate" required> <!-- Fixed 'appointmentdate' to 'appointmentDate' -->
+    </div>
+    <button style="cursor: pointer;" type="submit" class="btn">Submit</button>
+  </form>
   
 
   
@@ -97,11 +158,10 @@ document.getElementById('appointmentForm').addEventListener('submit', function(e
 
   // Get form values
   const formData = {
+    
     firstName: document.getElementById('firstName').value,
     lastName: document.getElementById('lastName').value,
-    dobDay: document.getElementById('dobDay').value,
-    dobMonth: document.getElementById('dobMonth').value,
-    dobYear: document.getElementById('dobYear').value,
+    DateofBirth: document.getElementById('dobDay').value,
     gender: document.getElementById('gender').value,
     phoneNumber: document.getElementById('phoneNumber').value,
     address: document.getElementById('address').value,
@@ -109,10 +169,8 @@ document.getElementById('appointmentForm').addEventListener('submit', function(e
     state: document.getElementById('state').value,
     postalCode: document.getElementById('postalCode').value,
     email: document.getElementById('email').value,
-    appliedBefore: document.getElementById('appliedBefore').value,
-    department: document.getElementById('department').value,
-    procedure: document.getElementById('procedure').value,
-    appointmentDate: document.getElementById('appointmentDate').value,
+    appointmentDate: document.getElementById('appointmentDate').value
+  
   };
 
   // Log the form data (you can send it to the server using AJAX instead)
@@ -123,7 +181,7 @@ document.getElementById('appointmentForm').addEventListener('submit', function(e
 
 
 <script>
-const scriptURL = 'https://script.google.com/macros/s/AKfycbwAC9HYSDApLD6xelo6zC40mh-rrgNySo0aC4bprI4g06VCebcY6zyBsCRibPoZdhk0/exec'
+const scriptURL = 'https://script.google.com/macros/s/AKfycbx8chktP9Fl3qX26OONj1XOu-bHYQNbUmaaNBu4HBZhz1YEx72HFkYOkV2yhC4wrZPm/exec'
   const form = document.forms['submit-to-google-sheet']
   const msg=document.getElementById("msg")
   
@@ -132,13 +190,24 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbwAC9HYSDApLD6xelo6zC
     e.preventDefault()
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
       .then(response => {
+          if (response.ok) {
+          // Success: Show success pop-up message
+          alert('Your appointment has been successfully booked!');
+          document.getElementById('appointmentForm').reset(); // Clear form after submission
+        } else {
+          // Handle error: Show error pop-up message
+          alert('There was an issue booking your appointment. Please try again.');
+      }
           msg.innerHTML="Message sent successfully"
           setTimeout(function(){
               msg.innerHTML=""
-          },5000)
+          })
           form.reset()
       })
-      .catch(error => console.error('Error!', error.message))
+      .catch(
+        error => console.error('Error!', error.message),
+        // alert('There was a network error. Please try again later.')
+      )
   })
 
 </script>

@@ -1,24 +1,8 @@
-/*-----------------------------------*\
-  #style.css
-\*-----------------------------------*/
 
-/**
- * copyright 2022 codewithsadee
- */
-
-
-
-
-
-/*-----------------------------------*\
-  #CUSTOM PROPERTY
-\*-----------------------------------*/
 
 :root {
 
-  /**
-   * colors
-   */
+  
 
   --light-steel-blue: hsl(218, 33%, 77%);
   --royal-blue-light: hsl(225, 68%, 53%);
@@ -38,9 +22,7 @@
   --black: hsl(0, 0%, 0%);
   --jet: hsl(0, 0%, 20%);
 
-  /**
-   * gradient color
-   */
+ 
 
   --gradient: linear-gradient( 90deg, var(--carolina-blue) 0%, var(--royal-blue-light) 100%);
 
